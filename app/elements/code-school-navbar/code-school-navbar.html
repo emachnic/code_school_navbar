@@ -1,0 +1,33 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<polymer-element name="code-school-navbar" attributes="brandSrc navLinks">
+  <template>
+    <link rel="stylesheet" href="code-school-navbar.css">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <img alt="Code School" src="{{ brandSrc }}">
+          </a>
+        </div>
+        <ul class='nav navbar-nav navbar-right'>
+          <template id='nav-links' repeat='{{ navLink in navLinks }}'>
+            <li><a href="{{ navLink[2] }}" class="{{ navLink[1] }}">{{ navLink[0] }}</a></li>
+          </template>
+        </ul>
+      </div>
+    </nav>
+  </template>
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        created: function() {
+          this.navLinks = [[]]
+        }
+      });
+
+    })();
+  </script>
+</polymer-element>
